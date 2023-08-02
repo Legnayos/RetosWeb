@@ -8,10 +8,10 @@
 		<version>2.7.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.reto01</groupId>
+	<groupId>com.retos</groupId>
 	<artifactId>grupog6</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>grupog6</name>
+	<name>segundociclo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
