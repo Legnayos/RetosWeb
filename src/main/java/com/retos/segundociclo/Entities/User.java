@@ -20,7 +20,7 @@ public class User implements Serializable {
     
     @NotNull
     @Column(unique = true, name= "identification")
-    private Long identification;
+    private String identification;
     
     @NotNull
     @Size(max = 80)
@@ -64,11 +64,11 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public Long getIdentification() {
+    public String getIdentification() {
         return identification;
     }
 
-    public void setIdentification(Long identification) {
+    public void setIdentification(String identification) {
         this.identification = identification;
     }
 
