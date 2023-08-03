@@ -30,5 +30,20 @@ public class UserService {
     public User getLogin(String email, String password) {
         return userRepository.getLogin(email, password);
     }
+
+    public User updUser(User user){
+        boolean bGrabar = true;
+
+        if(user.getId() == null || user.getId() == 0)
+            bGrabar = false;
+
+        if(bGrabar == true)
+            return userRepository.updUser(user);
+        else
+            return user;
+    }
     
+    public void delUser(Long id){
+        userRepository.delUser(id);
+    }
 }

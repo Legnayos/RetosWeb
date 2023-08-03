@@ -19,21 +19,40 @@ public class User implements Serializable {
     private Long id;
     
     @NotNull
+    @Column(unique = true, name= "identification")
+    private Long identification;
+    
+    @NotNull
+    @Size(max = 80)
+    @Column(name = "user_name")
+    private String name;
+
+    @NotNull
+    @Column(name = "address")
+    private String address;
+
+    @NotNull
+    @Column(name = "cellPhone")
+    private Long cellPhone;
+    
+    @NotNull
     @Size(max = 80)
     @Column(unique = true, name = "user_email")
     private String email;
 
     @NotNull
     @Size(max = 50)
-    @Column( name = "user_password")
+    @Column(name = "user_password")
     private String password;
 
     @NotNull
-    @Size(max = 80)
-    @Column( name = "user_name")
-    private String name;
-
-
+    @Column(name = "zone")
+    private String zone;
+    
+    @NotNull
+    @Column(name = "type")
+    private String type;
+    
     public User() {
     }
 
@@ -45,12 +64,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public Long getIdentification() {
+        return identification;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIdentification(Long identification) {
+        this.identification = identification;
     }
 
     public String getName() {
@@ -61,6 +80,30 @@ public class User implements Serializable {
         this.name = name;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Long getCellPhone() {
+        return cellPhone;
+    }
+
+    public void setCellPhone(Long cellPhone) {
+        this.cellPhone = cellPhone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -68,6 +111,26 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getZone() {
+        return zone;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+ 
+
+    
 
     
 

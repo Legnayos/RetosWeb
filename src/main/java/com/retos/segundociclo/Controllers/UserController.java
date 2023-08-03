@@ -6,13 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.retos.segundociclo.CrudRepository.UserCrudRepository;
 import com.retos.segundociclo.Entities.User;
 import com.retos.segundociclo.Services.UserService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -51,5 +54,19 @@ public class UserController {
         return userService.addUser(user);
     }
     
+    @Autowired
+    UserCrudRepository userRepository;
+    
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User updUser(@RequestBody User user){
+        return (User) userService.updUser(user);
+    }
+    
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delUser(@PathVariable Long id){
+        userService.delUser(id);
+    }
     
 }

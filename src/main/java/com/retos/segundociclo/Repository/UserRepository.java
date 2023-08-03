@@ -38,9 +38,11 @@ public class UserRepository {
         User usuarioRespuesta = new User();
 
         if (miUsuario.isEmpty()) {
+            /* 
             usuarioRespuesta.setEmail(email);
             usuarioRespuesta.setPassword(password);
             usuarioRespuesta.setName("NO DEFINIDO");
+            */
             usuarioRespuesta.setId(null);
          } 
          else {
@@ -49,4 +51,61 @@ public class UserRepository {
          return usuarioRespuesta;
     }
 
+    public User existUser(Long Id){
+
+        Optional <User> objUser = userCrudRepository.findById(Id);
+        User objUserRespuesta;
+
+        if(objUser.isEmpty() == true)
+            objUserRespuesta = null;
+
+        else{
+            objUserRespuesta = objUser.get();
+        }
+        
+        return objUserRespuesta;
+    }
+
+    public User updUser(User user){
+
+        User objUser = existUser(user.getId());
+
+        if(objUser == null)
+        {
+            return user;
+        } 
+
+        if(user.getIdentification() !=  null)
+            objUser.setIdentification(user.getIdentification());
+
+        if(user.getName() !=  null)
+            objUser.setName(user.getName());
+
+        if(user.getAddress() !=  null)
+            objUser.setAddress(user.getAddress());
+
+        if(user.getCellPhone() !=  null)
+            objUser.setCellPhone(user.getCellPhone());
+
+        if(user.getEmail() !=  null)
+            objUser.setEmail(user.getEmail());
+
+        if(user.getPassword() !=  null)
+            objUser.setPassword(user.getPassword());
+
+        if(user.getZone() !=  null)
+            objUser.setZone(user.getZone());
+
+        if(user.getType() !=  null)
+            objUser.setType(user.getType());
+
+        return userCrudRepository.save(objUser);
+    }
+
+    public void delUser(Long id){
+        User objUser = existUser(id);
+        if(objUser != null){
+            userCrudRepository.deleteById(id);
+        }
+    }
 }
