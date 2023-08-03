@@ -36,7 +36,7 @@ public class UserController {
 
     }
     
-    @GetMapping("/{email}")
+    @GetMapping("/emailexist/{email}")
     @ResponseStatus(HttpStatus.OK)
     public Boolean getValidateEmail(@PathVariable String email) {
         return userService.getValidateEmail(email);

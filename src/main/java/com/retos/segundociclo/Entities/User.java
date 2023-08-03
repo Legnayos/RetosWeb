@@ -33,7 +33,7 @@ public class User implements Serializable {
 
     @NotNull
     @Column(name = "cellPhone")
-    private Long cellPhone;
+    private String cellPhone;
     
     @NotNull
     @Size(max = 80)
@@ -88,11 +88,11 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    public Long getCellPhone() {
+    public String getCellPhone() {
         return cellPhone;
     }
 
-    public void setCellPhone(Long cellPhone) {
+    public void setCellPhone(String cellPhone) {
         this.cellPhone = cellPhone;
     }
 
